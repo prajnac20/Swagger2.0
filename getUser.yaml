@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  description: "An API to register user."
+  version: "1.0.0"
+  title: "getUser"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteaam@thbs.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "3.215.167.185:8181"
+basePath: "/tdg/api/v1"
+paths:
+ 
+  /users/{email_id}: 
+    get:
+      description: "Gets user by email id."
+      summary: "Find by email id"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - in: path
+          name: email_id
+          required: true
+          type: string
+          minimum: 1
+          description: "Passing email as parameter"
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            properties:
+              name:
+                type: string
+              email_id:
+                type: string
+  
+          
+definitions: 
+  User:
+    properties:
+      name:
+        type: string
+        example: deepika
+      email_id:
+        type: string
+        example: deepika@gmail.com
+    
+  
+      
+        
+            
+          
+       
+             

@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  description: "An API to register user."
+  version: "1.0.0"
+  title: "registerUser"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteaam@thbs.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "3.215.167.185:8181"
+basePath: "/tdg/api/v1"
+paths:
+  /user:
+    post:
+      tags:
+      - "User"
+      summary: "Add a new user"
+      description: ""
+      operationId: "addUser"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            required:
+              - name
+              - email_id
+            properties:
+              name:
+                type: string
+                example: deepika
+              email_id:
+                type: string
+                example: deepika@gmail.com
+      responses:
+        200:
+         description: Successful
+         schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Successfully registered
+            code:
+              type: string
+              example: TDG_S201_001
+            
+          
+       
+             
