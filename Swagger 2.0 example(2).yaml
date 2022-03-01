@@ -1,0 +1,98 @@
+swagger: "2.0"
+info:
+  description: "Inventory API Demo."
+  version: "1.0.0"
+  title: "Inventory API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "Dev@apicom"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "3.215.167.185:8181"
+basePath: "/tdg/api/v1"
+paths:
+  /inventory:
+    get:
+      tags:
+      - "User"
+      
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      
+      parameters:
+        - in: query
+          name: item_name
+          type: string
+          description: The user to create.
+          required: true
+            
+      responses:
+        200:
+         description: Successful
+         schema:
+          $ref: '#/definitions/Item'
+    post:
+      description: "Add a new item"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      parameters: 
+        - in: body
+          name: item
+          description: Add an item
+          schema: 
+            $ref: '#/definitions/Item'
+      responses:
+        200:
+          description: "Item added successfully"
+        
+          
+        
+      
+        
+          
+  /item/{id}: 
+    get:
+      description: "Gets user by email id."
+      summary: "Find by email id"
+      produces:
+        - "application/json"
+        - "application/xml"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          minimum: 1
+          description: "Passing id"
+      responses:
+        200:
+          description: "Successful"
+          schema:
+            $ref: '#/definitions/Item'
+            
+  
+definitions:
+  Item:
+    properties: 
+      Product_ID:
+        type: integer
+        example: 4
+      Product_Name:
+        type: string
+        example: Prestige 1000 Cooker
+          
+
+    
+  
+      
+        
+            
+          
+       
+             
